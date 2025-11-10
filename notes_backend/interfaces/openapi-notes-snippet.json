@@ -1,0 +1,24 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Notes API",
+    "description": "CRUD endpoints for notes",
+    "version": "v1"
+  },
+  "basePath": "/api",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/notes/": {
+      "get": { "summary": "List notes", "responses": { "200": { "description": "OK" } } },
+      "post": { "summary": "Create note", "responses": { "201": { "description": "Created" }, "400": { "description": "Bad Request" } } }
+    },
+    "/notes/{id}/": {
+      "get": { "summary": "Retrieve note", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "integer" }], "responses": { "200": { "description": "OK" }, "404": { "description": "Not Found" } } },
+      "put": { "summary": "Update note", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "integer" }], "responses": { "200": { "description": "OK" }, "400": { "description": "Bad Request" } } },
+      "patch": { "summary": "Partial update note", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "integer" }], "responses": { "200": { "description": "OK" }, "400": { "description": "Bad Request" } } },
+      "delete": { "summary": "Delete note", "parameters": [{ "name": "id", "in": "path", "required": true, "type": "integer" }], "responses": { "204": { "description": "No Content" }, "404": { "description": "Not Found" } } }
+    }
+  }
+}
